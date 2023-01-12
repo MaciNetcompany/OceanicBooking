@@ -12,6 +12,10 @@ namespace OceanicBooking.Controllers
         public LoginController()
         {
         }
+        public ActionResult Index()
+        {
+            return View();
+        }
 
         [Route("auth")]
         [HttpGet()]
