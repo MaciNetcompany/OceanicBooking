@@ -34,24 +34,24 @@ public class InformationController : ControllerBase
     public ActionResult<string> GetData(RequestData jsonObject)
     {
         var json = JsonConvert.SerializeObject(jsonObject);
+        //Do not call this until we have proper urls.
+        var response1 = SendRequest(json, "https://XXX1.azurewebsites.net//route/information");
 
-        var response1 = SendRequest(json, "https://firstplace.com/route/information");
+        var response2 = SendRequest(json, "https://XXX2.azurewebsites.net//route/information");
 
-        var response2 = SendRequest(json, "https://secondplace.com/route/information");
-
-        if (response1[1] < response2[1])
+        if (response1.Result[1] < response2.Result[1])
         {
-            return response1;
+            return response1.Result;
         }
 
-        return response2;
+        return response2.Result;
     }
 
-    private string SendRequest(string json, string url)
+    private async Task<string> SendRequest(string json, string url)
     {
         using (var client = new HttpClient())
         {
-            var response =  client.PostAsync(url, new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
+            var response = await client.PostAsync(url, new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
             var responseString = JsonConvert.SerializeObject(response);
             return responseString;
         }
