@@ -48,7 +48,44 @@ namespace OceanicBooking.Controllers
         [HttpGet()]
         public async Task<IActionResult> ExportParcels()
         {
-            var exported = true; // TODO: use ExportingComponent to get if we managed to export file
+            var routes = new List<FlyRoute>();
+            routes.Add(new FlyRoute()
+            {
+                Category = Categories.Weapons,
+                Date = DateTime.Now,
+                DestinationPoint = "Point1",
+                Dimensions = new decimal[]{4.1m,4.2m,4.5m},
+                Price = 22.3m,
+                RouteID = 0,
+                SourcePoint = "Point0",
+                Weight = 10.1m
+                
+            });
+            routes.Add(new FlyRoute()
+            {
+                Category = Categories.Weapons,
+                Date = DateTime.Now,
+                DestinationPoint = "Point3",
+                Dimensions = new decimal[] { 4.1m, 4.2m, 4.5m },
+                Price = 22.3m,
+                RouteID = 0,
+                SourcePoint = "Point2",
+                Weight = 10.1m
+
+            });
+            routes.Add(new FlyRoute()
+            {
+                Category = Categories.Weapons,
+                Date = DateTime.Now,
+                DestinationPoint = "Point7",
+                Dimensions = new decimal[] { 4.1m, 4.2m, 4.5m },
+                Price = 22.3m,
+                RouteID = 1,
+                SourcePoint = "Point4",
+                Weight = 10.1m
+
+            });
+            var exported = _csvExporter.SaveToCSV(routes);
             if (exported)
             {
                 return Ok();
