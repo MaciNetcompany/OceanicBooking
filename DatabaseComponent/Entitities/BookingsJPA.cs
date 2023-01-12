@@ -9,8 +9,6 @@ namespace DatabaseComponent.Entitities
     public class BookingsJPA
     {
         public Guid ID { get; set; }
-
-        public 
         public int FromCityId{ get; set; }
         public int ToCityId { get; set; }
         public int Weight { get; set; }
