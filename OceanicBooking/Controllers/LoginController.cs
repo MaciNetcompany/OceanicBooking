@@ -7,15 +7,24 @@ namespace OceanicBooking.Controllers
     public class LoginController : Controller
     {
 
-        public LoginController()
-        {
-        }
 
         public ActionResult Index()
         {
             return View();
         }
+        [HttpPost]
+        public async Task<IActionResult> OnPost()
+        {
+            var d = 2;
+            var username = Request.Form["username"];
+            var password = Request.Form["password"];
+            if (username[0]!=null&& password[0]!=null)
+            {
+                d = 3;
+            }
 
+            return RedirectToAction("Index", "Home");
+        }
 
         [Route("auth")]
         [HttpGet()]
