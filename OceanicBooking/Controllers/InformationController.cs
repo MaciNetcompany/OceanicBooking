@@ -9,39 +9,38 @@ public class InformationController : ControllerBase
 {
     [Route("")]
     [HttpPost()]
-    public ActionResult<string> PostData(RequestData jsonObject)
+    public ActionResult<string> PostData([FromBody] DataModel jsonObject)
     {
-        // Do something with the posted data, first we have to validate the information.
-        // ...
-        if (jsonObject == null)//Neds to be updated to check if we have a valid route and if not we return badrequest with a custom message,
+
+        if (jsonObject == null )
         {
             return BadRequest("Route not found");
         }
 
-        // Process the request and prepare the response
-        var response = new ResponseData();
-        var cost = 0;
-        var duration = 0;
+        //Call calculate route component, where we take the cost and duration and return those values.
+
+        var cost = jsonObject.weight;
+        var duration = jsonObject.weight;
 
 
-        response.Result = $"{{\"cost\":{cost},\"duration\":{duration}}}";
-        return Ok(response.Result);
+        string response = $"{{\"cost\":{cost},\"duration\":{duration}}}";
+        return Ok(response);
     }
 
-    public ActionResult<string> GetData(RequestData jsonObject)
+    public ActionResult<string> GetData(DataModel jsonObject)
     {
         var json = JsonConvert.SerializeObject(jsonObject);
         //Do not call this until we have urls.
-        var response1 = SendRequest(json, "https://XXX1.azurewebsites.net//route/information");
+        var responseTelstar = SendRequest(json, "https://wa-tl-dk2.azurewebsites.net/information/order");
 
-        var response2 = SendRequest(json, "https://XXX2.azurewebsites.net//route/information");
+        var responseEastIndia = SendRequest(json, "https://XXX2.azurewebsites.net//route/information");
 
-        if (response1.Result[1] < response2.Result[1])
+        if (responseTelstar.Result[1] < responseEastIndia.Result[1])
         {
-            return response1.Result;
+            return responseTelstar.Result;
         }
 
-        return response2.Result;
+        return responseEastIndia.Result;
     }
 
     private async Task<string> SendRequest(string json, string url)
@@ -63,4 +62,21 @@ public class RequestData
 public class ResponseData
 {
     public string Result { get; set; }
+}
+
+public class DataModel
+{
+    public string start_destination { get; set; }
+    public string stop_destination { get; set; }
+    public string start_destination_arrival { get; set; }
+    public DimensionModel dimensions { get; set; }
+    public string weight { get; set; }
+    public string categories { get; set; }
+}
+
+public class DimensionModel
+{
+    public string height { get; set; }
+    public string width { get; set; }
+    public string length { get; set; }
 }
