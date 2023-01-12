@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
+namespace OceanicBooking.Controllers;
 
+[Route("route/[controller]")]
 [ApiController]
 public class InformationController : ControllerBase
 {
-    [HttpPost("/route/information")]
+    [Route("")]
+    [HttpPost()]
     public ActionResult<string> PostData(RequestData jsonObject)
     {
         // Do something with the posted data, first we have to validate the information.
@@ -30,11 +28,10 @@ public class InformationController : ControllerBase
         return Ok(response.Result);
     }
 
-    [HttpGet("/route/information")]
     public ActionResult<string> GetData(RequestData jsonObject)
     {
         var json = JsonConvert.SerializeObject(jsonObject);
-        //Do not call this until we have proper urls.
+        //Do not call this until we have urls.
         var response1 = SendRequest(json, "https://XXX1.azurewebsites.net//route/information");
 
         var response2 = SendRequest(json, "https://XXX2.azurewebsites.net//route/information");
