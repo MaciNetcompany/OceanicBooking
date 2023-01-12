@@ -46,14 +46,19 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
-
 .table {
-    table-layout:fixed;
+    table-layout: fixed;
     display: flex;
+    border: 1px solid;
 }
 
 table, th, td {
     border-collapse: collapse;
+    border: 1px solid;
+}
+
+.table_margin {
+    margin-bottom: 10px;
 }
 
 /* Dropdown Button */
