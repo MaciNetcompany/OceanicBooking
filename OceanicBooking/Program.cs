@@ -7,6 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 builder.Services.AddControllers().AddControllersAsServices();
+
+builder.Services.AddCSVExporter();
+
 builder.Services.AddDBServices();
 var app = builder.Build();
 
