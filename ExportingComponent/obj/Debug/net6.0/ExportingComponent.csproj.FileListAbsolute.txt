@@ -10,3 +10,15 @@ C:\Users\maci\source\repos\CES\OceanicBooking\ExportingComponent\obj\Debug\net6.
 C:\Users\maci\source\repos\CES\OceanicBooking\ExportingComponent\obj\Debug\net6.0\refint\ExportingComponent.dll
 C:\Users\maci\source\repos\CES\OceanicBooking\ExportingComponent\obj\Debug\net6.0\ExportingComponent.pdb
 C:\Users\maci\source\repos\CES\OceanicBooking\ExportingComponent\obj\Debug\net6.0\ref\ExportingComponent.dll
+C:\Users\kolk\Source\Repos\OceanicBooking\ExportingComponent\bin\Debug\net6.0\ExportingComponent.deps.json
+C:\Users\kolk\Source\Repos\OceanicBooking\ExportingComponent\bin\Debug\net6.0\ExportingComponent.dll
+C:\Users\kolk\Source\Repos\OceanicBooking\ExportingComponent\bin\Debug\net6.0\ExportingComponent.pdb
+C:\Users\kolk\Source\Repos\OceanicBooking\ExportingComponent\obj\Debug\net6.0\ExportingComponent.csproj.AssemblyReference.cache
+C:\Users\kolk\Source\Repos\OceanicBooking\ExportingComponent\obj\Debug\net6.0\ExportingComponent.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kolk\Source\Repos\OceanicBooking\ExportingComponent\obj\Debug\net6.0\ExportingComponent.AssemblyInfoInputs.cache
+C:\Users\kolk\Source\Repos\OceanicBooking\ExportingComponent\obj\Debug\net6.0\ExportingComponent.AssemblyInfo.cs
+C:\Users\kolk\Source\Repos\OceanicBooking\ExportingComponent\obj\Debug\net6.0\ExportingComponent.csproj.CoreCompileInputs.cache
+C:\Users\kolk\Source\Repos\OceanicBooking\ExportingComponent\obj\Debug\net6.0\ExportingComponent.dll
+C:\Users\kolk\Source\Repos\OceanicBooking\ExportingComponent\obj\Debug\net6.0\refint\ExportingComponent.dll
+C:\Users\kolk\Source\Repos\OceanicBooking\ExportingComponent\obj\Debug\net6.0\ExportingComponent.pdb
+C:\Users\kolk\Source\Repos\OceanicBooking\ExportingComponent\obj\Debug\net6.0\ref\ExportingComponent.dll

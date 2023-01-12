@@ -9,7 +9,6 @@ namespace CalculatingPriceSystem
             List<float[]> CostsCar/*weight, length, width, height, price*/, List<float[]> CostsBoat, List<float[]> CostsPlane)
         {
             float ResultPrice = 0.0F;
-            //w zależności od pojazdu sprawdzamy podtabelę z cenami i dostosowujemy w zależności od wymiarów
             for (int i = 0; i < Route.Count; i++)
             {
                 List<float> Prices = new List<float>();

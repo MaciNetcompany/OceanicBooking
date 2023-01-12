@@ -10,3 +10,15 @@ C:\Users\maci\source\repos\CES\OceanicBooking\UserAuthSystem\obj\Debug\net6.0\Us
 C:\Users\maci\source\repos\CES\OceanicBooking\UserAuthSystem\obj\Debug\net6.0\refint\UserAuthSystem.dll
 C:\Users\maci\source\repos\CES\OceanicBooking\UserAuthSystem\obj\Debug\net6.0\UserAuthSystem.pdb
 C:\Users\maci\source\repos\CES\OceanicBooking\UserAuthSystem\obj\Debug\net6.0\ref\UserAuthSystem.dll
+C:\Users\kolk\Source\Repos\OceanicBooking\UserAuthSystem\bin\Debug\net6.0\UserAuthSystem.deps.json
+C:\Users\kolk\Source\Repos\OceanicBooking\UserAuthSystem\bin\Debug\net6.0\UserAuthSystem.dll
+C:\Users\kolk\Source\Repos\OceanicBooking\UserAuthSystem\bin\Debug\net6.0\UserAuthSystem.pdb
+C:\Users\kolk\Source\Repos\OceanicBooking\UserAuthSystem\obj\Debug\net6.0\UserAuthSystem.csproj.AssemblyReference.cache
+C:\Users\kolk\Source\Repos\OceanicBooking\UserAuthSystem\obj\Debug\net6.0\UserAuthSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kolk\Source\Repos\OceanicBooking\UserAuthSystem\obj\Debug\net6.0\UserAuthSystem.AssemblyInfoInputs.cache
+C:\Users\kolk\Source\Repos\OceanicBooking\UserAuthSystem\obj\Debug\net6.0\UserAuthSystem.AssemblyInfo.cs
+C:\Users\kolk\Source\Repos\OceanicBooking\UserAuthSystem\obj\Debug\net6.0\UserAuthSystem.csproj.CoreCompileInputs.cache
+C:\Users\kolk\Source\Repos\OceanicBooking\UserAuthSystem\obj\Debug\net6.0\UserAuthSystem.dll
+C:\Users\kolk\Source\Repos\OceanicBooking\UserAuthSystem\obj\Debug\net6.0\refint\UserAuthSystem.dll
+C:\Users\kolk\Source\Repos\OceanicBooking\UserAuthSystem\obj\Debug\net6.0\UserAuthSystem.pdb
+C:\Users\kolk\Source\Repos\OceanicBooking\UserAuthSystem\obj\Debug\net6.0\ref\UserAuthSystem.dll

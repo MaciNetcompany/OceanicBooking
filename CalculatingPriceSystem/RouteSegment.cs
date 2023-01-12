@@ -9,14 +9,8 @@ namespace CalculatingPriceSystem
     internal class RouteSegment
     {
 
-        private String PointA;
-        private String PointB;
-        private String Vehicle;
-        public RouteSegment(String Point_A, String Point_B, String Veh)
-        {
-            PointA = Point_A;
-            PointB = Point_B;
-            Vehicle = Veh;
-        }
+        internal String PointA { get; set; }
+        internal String PointB { get; set; }
+        internal String Vehicle { get; set; }
     }
 }

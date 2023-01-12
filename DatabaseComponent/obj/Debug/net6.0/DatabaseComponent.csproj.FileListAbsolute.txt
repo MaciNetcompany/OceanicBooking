@@ -10,3 +10,15 @@ C:\Users\maci\source\repos\CES\OceanicBooking\DatabaseComponent\obj\Debug\net6.0
 C:\Users\maci\source\repos\CES\OceanicBooking\DatabaseComponent\obj\Debug\net6.0\refint\DatabaseComponent.dll
 C:\Users\maci\source\repos\CES\OceanicBooking\DatabaseComponent\obj\Debug\net6.0\DatabaseComponent.pdb
 C:\Users\maci\source\repos\CES\OceanicBooking\DatabaseComponent\obj\Debug\net6.0\ref\DatabaseComponent.dll
+C:\Users\kolk\Source\Repos\OceanicBooking\DatabaseComponent\bin\Debug\net6.0\DatabaseComponent.deps.json
+C:\Users\kolk\Source\Repos\OceanicBooking\DatabaseComponent\bin\Debug\net6.0\DatabaseComponent.dll
+C:\Users\kolk\Source\Repos\OceanicBooking\DatabaseComponent\bin\Debug\net6.0\DatabaseComponent.pdb
+C:\Users\kolk\Source\Repos\OceanicBooking\DatabaseComponent\obj\Debug\net6.0\DatabaseComponent.csproj.AssemblyReference.cache
+C:\Users\kolk\Source\Repos\OceanicBooking\DatabaseComponent\obj\Debug\net6.0\DatabaseComponent.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kolk\Source\Repos\OceanicBooking\DatabaseComponent\obj\Debug\net6.0\DatabaseComponent.AssemblyInfoInputs.cache
+C:\Users\kolk\Source\Repos\OceanicBooking\DatabaseComponent\obj\Debug\net6.0\DatabaseComponent.AssemblyInfo.cs
+C:\Users\kolk\Source\Repos\OceanicBooking\DatabaseComponent\obj\Debug\net6.0\DatabaseComponent.csproj.CoreCompileInputs.cache
+C:\Users\kolk\Source\Repos\OceanicBooking\DatabaseComponent\obj\Debug\net6.0\DatabaseComponent.dll
+C:\Users\kolk\Source\Repos\OceanicBooking\DatabaseComponent\obj\Debug\net6.0\refint\DatabaseComponent.dll
+C:\Users\kolk\Source\Repos\OceanicBooking\DatabaseComponent\obj\Debug\net6.0\DatabaseComponent.pdb
+C:\Users\kolk\Source\Repos\OceanicBooking\DatabaseComponent\obj\Debug\net6.0\ref\DatabaseComponent.dll
