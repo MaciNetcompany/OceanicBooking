@@ -10,3 +10,15 @@ C:\Users\maci\source\repos\CES\OceanicBooking\CalculatingRouteSystem\obj\Debug\n
 C:\Users\maci\source\repos\CES\OceanicBooking\CalculatingRouteSystem\obj\Debug\net6.0\refint\CalculatingRouteSystem.dll
 C:\Users\maci\source\repos\CES\OceanicBooking\CalculatingRouteSystem\obj\Debug\net6.0\CalculatingRouteSystem.pdb
 C:\Users\maci\source\repos\CES\OceanicBooking\CalculatingRouteSystem\obj\Debug\net6.0\ref\CalculatingRouteSystem.dll
+C:\Users\kolk\source\repos\OceanicBooking\CalculatingRouteSystem\bin\Debug\net6.0\CalculatingRouteSystem.deps.json
+C:\Users\kolk\source\repos\OceanicBooking\CalculatingRouteSystem\bin\Debug\net6.0\CalculatingRouteSystem.dll
+C:\Users\kolk\source\repos\OceanicBooking\CalculatingRouteSystem\bin\Debug\net6.0\CalculatingRouteSystem.pdb
+C:\Users\kolk\source\repos\OceanicBooking\CalculatingRouteSystem\obj\Debug\net6.0\CalculatingRouteSystem.csproj.AssemblyReference.cache
+C:\Users\kolk\source\repos\OceanicBooking\CalculatingRouteSystem\obj\Debug\net6.0\CalculatingRouteSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kolk\source\repos\OceanicBooking\CalculatingRouteSystem\obj\Debug\net6.0\CalculatingRouteSystem.AssemblyInfoInputs.cache
+C:\Users\kolk\source\repos\OceanicBooking\CalculatingRouteSystem\obj\Debug\net6.0\CalculatingRouteSystem.AssemblyInfo.cs
+C:\Users\kolk\source\repos\OceanicBooking\CalculatingRouteSystem\obj\Debug\net6.0\CalculatingRouteSystem.csproj.CoreCompileInputs.cache
+C:\Users\kolk\source\repos\OceanicBooking\CalculatingRouteSystem\obj\Debug\net6.0\CalculatingRouteSystem.dll
+C:\Users\kolk\source\repos\OceanicBooking\CalculatingRouteSystem\obj\Debug\net6.0\refint\CalculatingRouteSystem.dll
+C:\Users\kolk\source\repos\OceanicBooking\CalculatingRouteSystem\obj\Debug\net6.0\CalculatingRouteSystem.pdb
+C:\Users\kolk\source\repos\OceanicBooking\CalculatingRouteSystem\obj\Debug\net6.0\ref\CalculatingRouteSystem.dll
