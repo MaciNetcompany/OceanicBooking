@@ -5,6 +5,18 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OceanicBooking", "OceanicBooking\OceanicBooking.csproj", "{B5028215-2C92-4C4A-B8EE-3202C3BF6F23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserAuthSystem", "UserAuthSystem\UserAuthSystem.csproj", "{EBC14D9B-085C-4CF7-A25A-7BF4B052FE9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatingRouteSystem", "CalculatingRouteSystem\CalculatingRouteSystem.csproj", "{3B0EA4B6-CEF5-475C-A56C-3368688C4CF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportingComponent", "ExportingComponent\ExportingComponent.csproj", "{42906D3B-8F6B-4BDE-93CF-4D6162A16066}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingSystem", "BookingSystem\BookingSystem.csproj", "{7C9AB199-C195-40A6-92EE-70D475CA96AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseComponent", "DatabaseComponent\DatabaseComponent.csproj", "{5AB439BF-34BB-4439-9090-3EDA4A20B0DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationComponent", "IntegrationComponent\IntegrationComponent.csproj", "{C305D7E3-CBA9-4845-8FFE-77C52747707E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +27,30 @@ Global
 		{B5028215-2C92-4C4A-B8EE-3202C3BF6F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5028215-2C92-4C4A-B8EE-3202C3BF6F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5028215-2C92-4C4A-B8EE-3202C3BF6F23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBC14D9B-085C-4CF7-A25A-7BF4B052FE9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBC14D9B-085C-4CF7-A25A-7BF4B052FE9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBC14D9B-085C-4CF7-A25A-7BF4B052FE9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBC14D9B-085C-4CF7-A25A-7BF4B052FE9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B0EA4B6-CEF5-475C-A56C-3368688C4CF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B0EA4B6-CEF5-475C-A56C-3368688C4CF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B0EA4B6-CEF5-475C-A56C-3368688C4CF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B0EA4B6-CEF5-475C-A56C-3368688C4CF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42906D3B-8F6B-4BDE-93CF-4D6162A16066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42906D3B-8F6B-4BDE-93CF-4D6162A16066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42906D3B-8F6B-4BDE-93CF-4D6162A16066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42906D3B-8F6B-4BDE-93CF-4D6162A16066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C9AB199-C195-40A6-92EE-70D475CA96AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C9AB199-C195-40A6-92EE-70D475CA96AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C9AB199-C195-40A6-92EE-70D475CA96AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C9AB199-C195-40A6-92EE-70D475CA96AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AB439BF-34BB-4439-9090-3EDA4A20B0DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AB439BF-34BB-4439-9090-3EDA4A20B0DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AB439BF-34BB-4439-9090-3EDA4A20B0DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AB439BF-34BB-4439-9090-3EDA4A20B0DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C305D7E3-CBA9-4845-8FFE-77C52747707E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C305D7E3-CBA9-4845-8FFE-77C52747707E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C305D7E3-CBA9-4845-8FFE-77C52747707E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C305D7E3-CBA9-4845-8FFE-77C52747707E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
