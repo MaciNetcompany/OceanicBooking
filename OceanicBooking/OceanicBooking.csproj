@@ -11,4 +11,12 @@
     <Folder Include="Views\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseComponent\DatabaseComponent.csproj" />
+  </ItemGroup>
+
 </Project>
