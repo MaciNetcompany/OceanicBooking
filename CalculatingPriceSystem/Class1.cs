@@ -1,4 +1,4 @@
-﻿namespace CalculatingPriceSystem
+﻿    namespace CalculatingPriceSystem
 {
     public class Class1
     {

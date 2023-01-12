@@ -4,3 +4,7 @@
 *.v1
 *.suo
 CalculatingPriceSystem/obj
+*.pdb
+*.dll
+IntegrationComponent/obj
+bin

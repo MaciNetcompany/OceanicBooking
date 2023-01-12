@@ -6,11 +6,15 @@ namespace OceanicBooking.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class BookingController : ControllerBase
+    public class BookingController : Controller
     {
 
         public BookingController()
         {
+        }
+        public ActionResult Index()
+        {
+            return View();
         }
 
         [Route("find")]

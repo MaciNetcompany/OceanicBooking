@@ -1,21 +1,21 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
-
+﻿using Microsoft.AspNetCore.Mvc;
 namespace OceanicBooking.Controllers
 {
 
     [Route("api/[controller]")]
     [ApiController]
-    public class LoginController : ControllerBase
+    public class LoginController : Controller
     {
 
         public LoginController()
         {
         }
+
         public ActionResult Index()
         {
             return View();
         }
+
 
         [Route("auth")]
         [HttpGet()]
@@ -25,10 +25,12 @@ namespace OceanicBooking.Controllers
             if (logged)
             {
                 return Ok();
-            } else
+            }
+            else
             {
                 return BadRequest();
             }
         }
 
     }
+}
