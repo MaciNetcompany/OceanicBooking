@@ -88,12 +88,12 @@
                                    minlength="0" maxlength="100">
                         </td>
                         <td>
-                            <select name="categories" id="categories">
-                                <option onchange="checkCategory()"></option>
-                                <option value="weapons">Weapons</option>
-                                <option value="cautios">Cautios parcels</option>
-                                <option value="refrigerated">Refrigerated goods</option>
-                                <option value="regular">Regular goods</option>
+                            <select name="categories" id="categories" onchange="setColorByWeapon.call(this)">
+                                <option></option>
+                                <option value="Weapons">Weapons</option>
+                                <option value="Cautios">Cautios parcels</option>
+                                <option value="Refrigerated">Refrigerated goods</option>
+                                <option value="Regular">Regular goods</option>
                             </select>
                         </td>
                         </form>
@@ -140,7 +140,8 @@
                         let input7 = document.createElement('input');
                         let input8 = document.createElement('select');
 
-                        var array = ["Weapons", "Cautios parcels", "Refrigerated goods", "Regular goods"];
+
+                        var array = ["","Weapons", "Cautios parcels", "Refrigerated goods", "Regular goods"];
 
                         for (var i = 0; i < array.length; i++) {
                             var option = document.createElement("option");
@@ -148,6 +149,7 @@
                             option.text = array[i];
                             input8.appendChild(option);
                         }
+                        input8.onchange = function() {setColorByWeapon2(input8)};
 
                         // Finally put it where it is supposed to appear.
                        cell1.innerHTML = "Parcel " + count;
@@ -158,6 +160,30 @@
                        cell6.appendChild(input6);
                        cell7.appendChild(input7);
                        cell8.appendChild(input8);
+                    }
+                    function setColorByWeapon() {
+                        var category = this;
+                        if (category == null) {
+                            return;
+                        }
+                        if (category.value === "Weapons") {
+                            category.style.backgroundColor = "red";
+                        } else {
+                            
+                            category.style.backgroundColor = "#f1f1f1";
+                        }
+                    }
+                    function setColorByWeapon2(object) {
+                        var category = object;
+                        if (category == null) {
+                            return;
+                        }
+                        if (category.value === "Weapons") {
+                            category.style.backgroundColor = "red";
+                        } else {
+                            
+                            category.style.backgroundColor = "#f1f1f1";
+                        }
                     }
 
                 </script>
