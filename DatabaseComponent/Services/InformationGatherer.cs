@@ -23,11 +23,11 @@ namespace DatabaseComponent.Services
 
                 var responseTelstar =
                     JsonConvert.DeserializeObject(SendRequest(json,
-                        "https://wa-tl-dk2.azurewebsites.net/information/order").Result);
+                        "https://wa-tl-dk2.azurewebsites.net/route/information").Result);
 
                 var responseEastIndia =
                     JsonConvert.DeserializeObject(SendRequest(json,
-                        "https://wa-oa-dk2.azurewebsites.net/route/information").Result);
+                        "https://wa-eit-dk2.azurewebsites.net/route/information", token).Result);
 
                 ResponseData responseEastIndia2 =
                     JsonConvert.DeserializeObject<ResponseData>(responseEastIndia.ToString());
