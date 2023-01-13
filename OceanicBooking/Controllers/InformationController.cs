@@ -25,9 +25,12 @@ public class InformationController : ControllerBase
         var cost = jsonObject.weight;
         var duration = jsonObject.weight;
 
+        ResponseData response = new ResponseData();
+        response.cost = jsonObject.weight;
+        response.duration = jsonObject.weight;
 
-        string response = $"{{\"cost\":\"{cost}\",\"duration\":\"{duration}\"}}";
-        return Ok(response);
+
+        return Ok(new {cost, duration});
     }
 
     public ActionResult<string> GetData(DataModel jsonObject)
@@ -69,7 +72,8 @@ public class RequestData
 
 public class ResponseData
 {
-    public string Result { get; set; }
+    public string cost { get; set; }
+    public string duration { get; set; }
 }
 
 public class DataModel
