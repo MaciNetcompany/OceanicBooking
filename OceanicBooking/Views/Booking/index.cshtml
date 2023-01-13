@@ -101,16 +101,7 @@
                     </tr>
                 </table>
                 
-                <form method="post" type="hidden">
-                    <input type="text" name="origin"> 
-                    <input type="text" name="destination"> 
-                    <input type="text" name="weight"> 
-                    <input type="text" name="length"> 
-                    <input type="text" name="width"> 
-                    <input type="text" name="height"> 
-                    <input type="text" name="category"> 
-                    <input type="submit" name="submitParcel" id="submitParcel">
-                </form>
+
                 <script>
                     //function checkCategory() {
                     //   var selectCategory = $("#categories :selected").val();
@@ -226,25 +217,9 @@
                         if(shouldContinue){
                             //populate hidden form
 
-                            var shouldContinue = true;
-                            var index = 0;
-                            for (var i = 1, row; row = table.rows[i]; i++) {
-                                for (var j = 1, col; col = row.cells[j]; j++) {
-                                    if (j<7) {
-                                        
-                                        let cell = col.getElementsByTagName('input')[0].value;
-                                        postObject[index] = cell;
-                                        if (!validate(cell, $headers[j - 1])) {
-                                            shouldContinue = false;
-                                            console.log(false);
-                                            alert("Parcel row " + i + " cant have a weight over 20 kg or dimensions that is larger than 2x2x2 meter or have blank cells");
-                                            break;
-                                        }
-                                        index = index + 1;
-                                    }
-                                }
-                            }
-                            //window.location.href = '/api/Confirmation';
+
+                            
+                            window.location.href = '/api/Confirmation';
 
 
                             //fetch(location.href + '/find', {
