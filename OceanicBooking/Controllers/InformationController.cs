@@ -8,8 +8,6 @@ namespace OceanicBooking.Controllers;
 [ApiController]
 public class InformationController : ControllerBase
 {
-    private string token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb21wYW55IjoiT2NlYW5pY3MifQ.eAayd9TP8peFENeAK9wV-lli3IIPHRR0nDsInPpbLFg";
     [Route("")]
     [HttpPost()]
     public ActionResult<string> PostData([FromBody] DataModel jsonObject)
@@ -25,40 +23,12 @@ public class InformationController : ControllerBase
         var cost = jsonObject.weight;
         var duration = jsonObject.weight;
 
+        ResponseData response = new ResponseData();
+        response.cost = jsonObject.weight;
+        response.duration = jsonObject.weight;
 
-        string response = $"{{\"cost\":\"{cost}\",\"duration\":\"{duration}\"}}";
-        return Ok(response);
-    }
 
-    public ActionResult<string> GetData(DataModel jsonObject)
-    {
-        var json = JsonConvert.SerializeObject(jsonObject);
-
-        var responseTelstar = SendRequest(json, "https://wa-tl-dk2.azurewebsites.net/information/order");
-
-        var responseEastIndia = SendRequest(json, "https://wa-eit-dk2.azurewebsites.net/route/information", token);
-
-        if (responseTelstar.Result[1] < responseEastIndia.Result[1])
-        {
-            return responseTelstar.Result;
-        }
-
-        return responseEastIndia.Result;
-    }
-
-    private async Task<string> SendRequest(string json, string url, string? token = null)
-    {
-        using (var client = new HttpClient())
-        {
-            if (token is not null)
-            {
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",
-                token);
-            }
-            var response = await client.PostAsync(url, new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
-            var responseString = JsonConvert.SerializeObject(response);
-            return responseString;
-        }
+        return Ok(new {cost, duration});
     }
 }
 
@@ -69,7 +39,8 @@ public class RequestData
 
 public class ResponseData
 {
-    public string Result { get; set; }
+    public string cost { get; set; }
+    public string duration { get; set; }
 }
 
 public class DataModel
