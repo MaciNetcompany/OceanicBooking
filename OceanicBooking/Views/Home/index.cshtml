@@ -69,7 +69,7 @@
         </table>
         <div>
             <div class="align-right">
-                <button>Export parcels</button>
+                <button id="csvFile">Export parcels</button>
                 <button onclick="window.location.href = '/api/Booking'">Add parcels</button>
             </div>
         </div>
@@ -85,7 +85,10 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
-    <script>
+<script>
+    document.getElementById("csvFile").onclick = function () {
+        location.href = "/api/Home/download";
+    };
     (async function InitParcelDeliveries() {
         var parcelDeliveriesTable = document.getElementById("parcelDeliveryTable");
         var i = 0;
@@ -111,27 +114,27 @@
             var cell6 = row.insertCell(6);
             var cell7 = row.insertCell(7);
             var cell8 = row.insertCell(8);
-            cell1.innerHTML = item.requestedAtDate
-            cell2.innerHTML = item.fromCityId
-            cell3.innerHTML = item.toCityId
-            cell4.innerHTML = item.deliveryTime
-            cell5.innerHTML = item.weight
-            cell6.innerHTML = item.length
-            cell7.innerHTML = item.height
+            cell1.innerHTML = item.requestedAtDate;
+            cell2.innerHTML = item.fromCityId;
+            cell3.innerHTML = item.toCityId;
+            cell4.innerHTML = item.deliveryTime;
+            cell5.innerHTML = item.weight;
+            cell6.innerHTML = item.length;
+            cell7.innerHTML = item.height;
             if (item.containsCautionsGoods) {
                 cell8.innerHTML = "Cautious goods";
             } else if (item.containsWeapons) {
                 cell8.innerHTML = "Weapons";
                 var weaponCell = parcelDeliveriesTable.getElementsByTagName("td");
-                    cell8.style.backgroundColor = "red";
+                cell8.style.backgroundColor = "red";
                     
-                } else if (item.isRefrigerated) {
+            } else if (item.isRefrigerated) {
                 cell8.innerHTML = "Refrigerated";
             }
             
         });
 
-    })()
-    
+    })();
+
 </script>
 </body>

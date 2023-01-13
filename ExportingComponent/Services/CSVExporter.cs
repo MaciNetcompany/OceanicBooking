@@ -1,4 +1,5 @@
 ﻿
+using DatabaseComponent.Entitities;
 using ExportingComponent.Interfaces;
 using ExportingComponent.NewFolder;
 
@@ -33,6 +34,20 @@ namespace ExportingComponent.Services
 
             return csv;
 
+        }
+
+        public string SaveToCSV(IEnumerable<BookingsJPA> bookings, IEnumerable<CitiesJPA> cities, IEnumerable<FlightsJPA> flights)
+        {
+            var routes = new List<FlyRoute>();
+            foreach (BookingsJPA bookingsJpa in bookings)
+            {
+                var route = new FlyRoute();
+                route.PopulateFromBookingDB(bookingsJpa);
+                route.PopulateFromCitiesDB(cities);
+                route.PopulateFromFlightsDB(flights);
+                routes.Add(route);
+            }
+            return SaveToCSV(routes);
         }
 
     }

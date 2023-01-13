@@ -17,6 +17,21 @@ namespace OceanicBooking.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public async Task<IActionResult> OnPost()
+        {
+            var d = 2;
+            var origin = Request.Form["origin"];
+            var destination = Request.Form["destination"];
+            var weight = Request.Form["weight"];
+            var length = Request.Form["length"];
+            var width = Request.Form["width"];
+            var height = Request.Form["height"];
+            var category = Request.Form["category"];
+
+
+            return RedirectToAction("Index", "Confirmation");
+        }
 
         [Route("find")]
         [HttpGet()]

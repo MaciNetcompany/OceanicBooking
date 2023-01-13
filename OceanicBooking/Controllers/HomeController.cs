@@ -53,44 +53,10 @@ namespace OceanicBooking.Controllers
         [Route("download")]
         public ActionResult Download()
         {
-            var routes = new List<FlyRoute>();
-            routes.Add(new FlyRoute()
-            {
-                Category = "Weapons",
-                Date = DateTime.Now,
-                DestinationPoint = "Point1",
-                Dimensions = new decimal[] { 4.1m, 4.2m, 4.5m },
-                Price = 22.3m,
-                RouteID = 0,
-                SourcePoint = "Point0",
-                Weight = 10.1m
-
-            });
-            routes.Add(new FlyRoute()
-            {
-                Category = "Fragile",
-                Date = DateTime.Now,
-                DestinationPoint = "Point3",
-                Dimensions = new decimal[] { 4.1m, 4.2m, 4.5m },
-                Price = 22.3m,
-                RouteID = 0,
-                SourcePoint = "Point2",
-                Weight = 10.1m
-
-            });
-            routes.Add(new FlyRoute()
-            {
-                Category = "None",
-                Date = DateTime.Now,
-                DestinationPoint = "Point7",
-                Dimensions = new decimal[] { 4.1m, 4.2m, 4.5m },
-                Price = 22.3m,
-                RouteID = 1,
-                SourcePoint = "Point4",
-                Weight = 10.1m
-
-            });
-            var exported = _csvExporter.SaveToCSV(routes);
+            var routes = _bookingContext.Bookings.Select(x=>x).ToList();
+            var cities = _bookingContext.Cities.Select(x => x).ToList();
+            var flights=_bookingContext.Flights.Select(x => x).ToList();
+            var exported = _csvExporter.SaveToCSV(routes,cities,flights);
             var stream = new MemoryStream();
             var writer = new StreamWriter(stream);
             writer.Write(exported);
