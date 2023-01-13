@@ -195,6 +195,7 @@
                         var shouldContinue = true
                         var index = 0;
                         for (var i = 1, row; row = table.rows[i]; i++) {
+                            validateOriginDestination(row);
                             for (var j = 1, col; col = row.cells[j]; j++) {
                                 if (j<7) {
                                     cell = col.getElementsByTagName('input')[0].value;
@@ -219,6 +220,14 @@
                             //    body : JSON.stringify(postObject)
                             //})
                         }
+                    }
+
+                    function validateOriginDestination(row) {
+                        console.log(row.cells[1].getElementsByTagName('input')[0].value);
+                        if (row.cells[1].getElementsByTagName('input')[0].value == row.cells[2].getElementsByTagName('input')[0].value) {
+                            alert("Parcel row " + " cant have same origin and destination")
+                            return;
+                        };
                     }
 
                     function validate(cell, header){
