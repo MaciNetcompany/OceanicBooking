@@ -26,7 +26,7 @@ public class InformationController : ControllerBase
         var duration = jsonObject.weight;
 
 
-        string response = $"{{\"cost\":{cost},\"duration\":\"{duration}\"}}";
+        string response = $"{{\"cost\":\"{cost}\",\"duration\":\"{duration}\"}}";
         return Ok(response);
     }
 
