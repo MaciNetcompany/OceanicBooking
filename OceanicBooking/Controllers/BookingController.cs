@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace OceanicBooking.Controllers
@@ -19,6 +20,7 @@ namespace OceanicBooking.Controllers
 
         [Route("find")]
         [HttpGet()]
+        [DisableCors]
         public async Task<IActionResult> FindRoutes()
         {
             var found = true; // TODO: use CalculatingRouteSystem to get routes

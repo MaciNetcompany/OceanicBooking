@@ -1,7 +1,261 @@
 ﻿@page
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p><a>Booking Page</a>.</p>
-    <a href="/api/Confirmation">Search Routes</a>
-</div>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/OceanicBooking.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">OceanicBooking</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Login/Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div class="text-center">
+                <h1 class="display-4">Oceanic Airlines Route booking</h1>
+                <table id="booking" width="100%">
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <label for="origin">Origin</label>
+                        </td>
+                        <td>
+                            <label for="destination">Destination</label>
+                        </td>
+                        <td>
+                            <label for="weight">Weight (kg)</label>
+                        </td>
+                        <td>
+                            <label for="length">Length (cm)</label>
+                        </td>
+                        <td>
+                            <label for="width">Width (cm)</label>
+                        </td>
+                        <td>
+                            <label for="height">Height (cm)</label>
+                        </td>
+                        <td>
+                            <label for="category">Category</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <form method="post" action="">
+                        <td>
+                            <label for="parcel">Parcel 1</label>
+                        </td>
+                        <td>
+                            <input type="text" id="origin" name="origin" required
+                                   minlength="1" maxlength="100">
+                        </td>
+                        <td>
+                            <input type="text" id="destination" name="destination" required
+                                   minlength="1" maxlength="100">
+                        </td>
+                        <td>
+                            <input type="number" id="weight" name="weight" required
+                                   minlength="0" maxlength="100">
+                        </td>
+                        <td>
+                            <input type="number" id="length" name="length" required
+                                   minlength="0" maxlength="100">
+                        </td>
+                        <td>
+                            <input type="number" id="width" name="width" required
+                                   minlength="0" maxlength="100">
+                        </td>
+                        <td>
+                            <input type="number" id="height" name="height" required
+                                   minlength="0" maxlength="100">
+                        </td>
+                        <td>
+                            <select name="categories" id="categories" onchange="setColorByWeapon.call(this)">
+                                <option></option>
+                                <option value="Weapons">Weapons</option>
+                                <option value="Cautios">Cautios parcels</option>
+                                <option value="Refrigerated">Refrigerated goods</option>
+                                <option value="Regular">Regular goods</option>
+                            </select>
+                        </td>
+                        </form>
+                    </tr>
+                </table>
+
+                <script>
+                    //function checkCategory() {
+                    //   var selectCategory = $("#categories :selected").val();
+                     //   var tableRow = document.getElementById("booking").css("background-color", "red");
+                       
+                       //if(selectCategory == "weapons"){
+                       
+                       //$(this).css("background-color","red");
+                            //$("booking tr").each(function(){
+                            //   if($(this).find("td:first").text() == "weapons"){
+                            //        $(this).css("background-color","red");
+                            //    }
+                            //});
+                       //}
+                     //}
+
+                    var count = 1;
+                    function addRow() {
+                        count += 1;
+
+                        var tableRow = document.getElementById("booking");
+                        var row = tableRow.insertRow(-1);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+                        var cell4 = row.insertCell(3);
+                        var cell5 = row.insertCell(4);
+                        var cell6 = row.insertCell(5);
+                        var cell7 = row.insertCell(6);
+                        var cell8 = row.insertCell(7);
+
+                        let input1 = document.createElement('input');
+                        let input2 = document.createElement('input');
+                        let input3 = document.createElement('input');
+                        let input4 = document.createElement('input');
+                        let input5 = document.createElement('input');
+                        let input6 = document.createElement('input');
+                        let input7 = document.createElement('input');
+                        let input8 = document.createElement('select');
+
+
+                        var array = ["","Weapons", "Cautios parcels", "Refrigerated goods", "Regular goods"];
+
+                        for (var i = 0; i < array.length; i++) {
+                            var option = document.createElement("option");
+                            option.value = array[i];
+                            option.text = array[i];
+                            input8.appendChild(option);
+                        }
+                        input8.onchange = function() {setColorByWeapon2(input8)};
+
+                        // Finally put it where it is supposed to appear.
+                       cell1.innerHTML = "Parcel " + count;
+                       cell2.appendChild(input2);
+                       cell3.appendChild(input3);
+                       cell4.appendChild(input4);
+                       cell5.appendChild(input5);
+                       cell6.appendChild(input6);
+                       cell7.appendChild(input7);
+                       cell8.appendChild(input8);
+                    }
+                    function setColorByWeapon() {
+                        var category = this;
+                        if (category == null) {
+                            return;
+                        }
+                        if (category.value === "Weapons") {
+                            category.style.backgroundColor = "red";
+                        } else {
+                            
+                            category.style.backgroundColor = "#f1f1f1";
+                        }
+                    }
+                    function setColorByWeapon2(object) {
+                        var category = object;
+                        if (category == null) {
+                            return;
+                        }
+                        if (category.value === "Weapons") {
+                            category.style.backgroundColor = "red";
+                        } else {
+                            
+                            category.style.backgroundColor = "#f1f1f1";
+                        }
+                    }
+
+                    function handleFormSubmission() {
+                        var table = document.getElementById("booking");
+                        var $headers = ["Origin", "Destination", "Weight", "Length", "Width", "Height", "Category"];
+                        console.log("In form")
+                        var postObject = {}
+                        var shouldContinue = true
+                        var index = 0;
+                        for (var i = 1, row; row = table.rows[i]; i++) {
+                            for (var j = 1, col; col = row.cells[j]; j++) {
+                                if (j<7) {
+                                    cell = col.getElementsByTagName('input')[0].value;
+                                postObject[index] = cell
+                                    if (!validate(cell, $headers[j - 1])) {
+                                        shouldContinue = false
+                                        console.log(false);
+                                        alert("Parcel row " + i + " cant have a weight over 20 kg or dimensions that is larger than 2x2x2 meter or have blank cells")
+                                        break;
+                                     }
+                                     index = index + 1 
+                                }
+                            }
+                        }
+                        console.log(location.href+'/find')
+                        console.log(postObject)
+                        if(shouldContinue){
+                            window.location.href = '/api/Confirmation';
+                            //fetch(location.href + '/find', {
+                            //    method : 'POST',
+                            //    headers : {'Content-Type' : 'application/json'},
+                            //    body : JSON.stringify(postObject)
+                            //})
+                        }
+                    }
+
+                    function validate(cell, header){
+                        if(cell == ""){
+                            return false;
+                        }
+                        
+                        if(header == "Height" || header == "Width" || header == "Length"){
+                            if(cell > 200){
+                                return false;
+                            }
+                        }
+                        else if(header == "Weight" && cell > 20){
+                            return false;
+                        }
+                        return true;
+                    }
+                </script>
+
+                <button type="button" onclick="addRow()" >
+                    Add parcel
+                </button>
+                <button type="button" onclick=handleFormSubmission()>
+                    Find routes
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - OceanicBooking - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+</body>
