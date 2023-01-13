@@ -20,9 +20,9 @@ namespace OceanicBooking.Controllers
 
         [Route("GetParcelDeliveries")]
         [HttpGet()]
-        public async Task<List<UserJPA>> GetParcelDeliveries()
+        public async Task<List<BookingsJPA>> GetParcelDeliveries()
         {
-            var bookings = await _bookingContext.; 
+            var bookings = await _bookingContext.Bookings.ToListAsync(); 
             if (!bookings.IsNullOrEmpty())
             {
                 return bookings;
