@@ -34,6 +34,11 @@ namespace OceanicBooking.Controllers
             
         }
 
+        [Route("admin")]
+        public ActionResult AdminIndex()
+        {
+            return View();
+        }
         public ActionResult Index()
         {
             return View();
