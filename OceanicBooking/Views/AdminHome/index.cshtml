@@ -11,15 +11,10 @@
     <link rel="stylesheet" href="~/OceanicBooking.styles.css" asp-append-version="true" />
 </head>
 <script>
-    // NOT WORKING
-
-    function AddItemRowForTable(item) {
-        console.log(item);
-    }
 
     (async function InitParcelDeliveries() {
-        const parcelDeliveriesTable = document.getElementById("parcelDeliveryTable");
-        var data = [];
+        var parcelDeliveriesTable = document.getElementById("parcelDeliveryTable");
+        var i = 0;
 
         let jsonData = {
             "method": "GET",
@@ -31,12 +26,27 @@
             then(response => response.json()).
             then(bookings =>{ return bookings});
         
-        console.log(parcelDeliveryData);
-        console.log(data);
-
-        
         parcelDeliveryData.forEach(item => {
-            AddItemRowForTable(item)
+            console.log(item);
+            const row = parcelDeliveriesTable.insertRow(0);
+            const cell1 = row.insertCell(0);
+            const cell2 = row.insertCell(1);
+            const cell3 = row.insertCell(2);
+            const cell4 = row.insertCell(3);
+            const cell5 = row.insertCell(4);
+            const cell6 = row.insertCell(5);
+            cell1.innerHTML = item.requestedAtDate
+            cell2.innerHTML = item.fromCityId
+            cell3.innerHTML = item.toCityId
+            cell4.innerHTML = item.weight
+            if(item.containsCautionsGoods) {
+                cell5.innerHTML = "Cautious goods";
+            } else if(item.containsWeapons) {
+                cell5.innerHTML = "Weapons";
+            } else if(item.isRefrigerated) {
+                cell5.innerHTML = "Refrigerated";
+            }
+            cell5.innerHTML = item.toCityId
         });
         
         })()
