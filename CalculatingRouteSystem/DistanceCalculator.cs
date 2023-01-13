@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CalculatingRouteSystem
 {
-    //TODO: insert link to the github this was taken from
+    //reference source: https://github.com/yazan9/Dijkstra-s-Algorithm
     internal class DistanceCalculator
     {
         Dictionary<Node, int> Distances;
@@ -38,7 +38,7 @@ namespace CalculatingRouteSystem
 
         private void Print(Node Source, Node Destination)
         {
-            Console.WriteLine(string.Format("The least possible cost for flying from {0} to {1} is: {2} $", Source.getName(), Destination.getName(), Distances[Destination]));
+            Console.WriteLine(string.Format("fastest route from {0} to {1} is: {2} $", Source.getName(), Destination.getName(), Distances[Destination]));
             PrintLeg(Destination);
             Console.ReadKey();
         }
