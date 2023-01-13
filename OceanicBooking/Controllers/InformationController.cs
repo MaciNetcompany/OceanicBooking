@@ -53,7 +53,7 @@ public class InformationController : ControllerBase
             if (token is not null)
             {
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb21wYW55IjoiT2NlYW5pY3MifQ.eAayd9TP8peFENeAK9wV-lli3IIPHRR0nDsInPpbLFg");
+                token);
             }
             var response = await client.PostAsync(url, new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
             var responseString = JsonConvert.SerializeObject(response);
