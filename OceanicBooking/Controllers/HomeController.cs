@@ -1,6 +1,8 @@
 ﻿using DatabaseComponent.Entitities;
 using DatabaseComponent.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace OceanicBooking.Controllers
 {
@@ -13,6 +15,23 @@ namespace OceanicBooking.Controllers
         public HomeController(IBookingContext bookingContext)
         {
             this._bookingContext=bookingContext;
+        }
+
+
+        [Route("GetParcelDeliveries")]
+        [HttpGet()]
+        public async Task<List<UserJPA>> GetParcelDeliveries()
+        {
+            var bookings = await _bookingContext.; 
+            if (!bookings.IsNullOrEmpty())
+            {
+                return bookings;
+            }
+            else
+            {
+                return null;
+            }
+            
         }
 
         public ActionResult Index()

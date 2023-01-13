@@ -12,21 +12,36 @@
 </head>
 <script>
     // NOT WORKING
-    (function InitParcelDeliveries() {
+
+    function AddItemRowForTable(item) {
+        console.log(item);
+    }
+
+    (async function InitParcelDeliveries() {
         const parcelDeliveriesTable = document.getElementById("parcelDeliveryTable");
+        var data = [];
 
-
-        const parcelDeliveryData = fetch('/api/getParcelDeliveries', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/JSON'
+        let jsonData = {
+            "method": "GET",
+            "headers": {
+                "Content-Type": "application/JSON"
             }
-        }).
+        };
+        const parcelDeliveryData = await fetch('/api/Home/GetParcelDeliveries', jsonData).
             then(response => response.json()).
-            then(data => {
-                console.log(data);
-            });
-    })()
+            then(bookings =>{ return bookings});
+        
+        console.log(parcelDeliveryData);
+        console.log(data);
+
+        
+        parcelDeliveryData.forEach(item => {
+            AddItemRowForTable(item)
+        });
+        
+        })()
+
+    
 </script>
 <body>
     <header>
@@ -51,11 +66,16 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
-            <table id="parcelDeliveryTable"></table>
-            <button >Export parcels</button>
-            <button >Add parcels</button>
-        </main>
+            <table id="parcelDeliveryTable">
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+                <th>Header 3</th>
+            </tr>
+            
+            </table>
+            <button>Export parcels</button>
+            <button>Add parcels</button>
     </div>
 
     <footer class="border-top footer text-muted">
