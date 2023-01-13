@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net.Http.Headers;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace OceanicBooking.Controllers;
@@ -7,12 +8,14 @@ namespace OceanicBooking.Controllers;
 [ApiController]
 public class InformationController : ControllerBase
 {
+    private string token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb21wYW55IjoiT2NlYW5pY3MifQ.eAayd9TP8peFENeAK9wV-lli3IIPHRR0nDsInPpbLFg";
     [Route("")]
     [HttpPost()]
     public ActionResult<string> PostData([FromBody] DataModel jsonObject)
     {
 
-        if (jsonObject == null )
+        if (jsonObject == null)
         {
             return BadRequest("Route not found");
         }
@@ -23,17 +26,17 @@ public class InformationController : ControllerBase
         var duration = jsonObject.weight;
 
 
-        string response = $"{{\"cost\":{cost},\"duration\":{duration}}}";
+        string response = $"{{\"cost\":{cost},\"duration\":\"{duration}\"}}";
         return Ok(response);
     }
 
     public ActionResult<string> GetData(DataModel jsonObject)
     {
         var json = JsonConvert.SerializeObject(jsonObject);
-        //Do not call this until we have urls.
+
         var responseTelstar = SendRequest(json, "https://wa-tl-dk2.azurewebsites.net/information/order");
 
-        var responseEastIndia = SendRequest(json, "https://XXX2.azurewebsites.net//route/information");
+        var responseEastIndia = SendRequest(json, "https://wa-eit-dk2.azurewebsites.net/route/information", token);
 
         if (responseTelstar.Result[1] < responseEastIndia.Result[1])
         {
@@ -43,10 +46,15 @@ public class InformationController : ControllerBase
         return responseEastIndia.Result;
     }
 
-    private async Task<string> SendRequest(string json, string url)
+    private async Task<string> SendRequest(string json, string url, string? token = null)
     {
         using (var client = new HttpClient())
         {
+            if (token is not null)
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb21wYW55IjoiT2NlYW5pY3MifQ.eAayd9TP8peFENeAK9wV-lli3IIPHRR0nDsInPpbLFg");
+            }
             var response = await client.PostAsync(url, new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
             var responseString = JsonConvert.SerializeObject(response);
             return responseString;
@@ -66,12 +74,12 @@ public class ResponseData
 
 public class DataModel
 {
-    public string start_destination { get; set; }
-    public string stop_destination { get; set; }
-    public string start_destination_arrival { get; set; }
+    public string cityTo { get; set; }
+    public string cityFrom { get; set; }
+    public string deliveryTime { get; set; }
     public DimensionModel dimensions { get; set; }
     public string weight { get; set; }
-    public string categories { get; set; }
+    public string[] categories { get; set; }
 }
 
 public class DimensionModel
