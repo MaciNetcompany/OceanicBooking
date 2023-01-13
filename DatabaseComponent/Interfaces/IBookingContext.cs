@@ -6,6 +6,9 @@ namespace DatabaseComponent.Interfaces
 {
     public interface IBookingContext
     {
-        DbSet<UserJPA> Users { get; set; }
+        public DbSet<UserJPA> Users { get; set; }
+        public DbSet<FlightsJPA> Flights { get; set; }
+        public DbSet<BookingsJPA> Bookings { get; set; }
+        public DbSet<TravelSegmentJPA> TravelSegment { get; set; }
     }
 }
