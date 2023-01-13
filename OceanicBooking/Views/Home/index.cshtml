@@ -1,4 +1,4 @@
-﻿@page
+@page
 @model OceanicBooking.Models.Login.IndexModel
 @{
     // ViewData.Model.UserName= "Home page";
@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/OceanicBooking.styles.css" asp-append-version="true" />
 </head>
-
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -37,33 +36,62 @@
         <div class="text-center">
             <h1 class="display-4">Parcel deliveries</h1>
         </div>
-        <table id="parcelDeliveryTable" width="100%" class="table_margin">
+        <table id="confirmation" width="100%" class="table_margin">
             <tr>
                 <td>
                 </td>
                 <td>
-                    <label>Date</label>
+                    <label for="route">Route</label>
                 </td>
                 <td>
-                    <label>OriginId</label>
+                    <label for="price">Price</label>
                 </td>
                 <td>
-                    <label>DestinationId</label>
+                    <label for="time">Time</label>
                 </td>
                 <td>
-                    <label>Time</label>
+                    <label for="weight">Weight (kg)</label>
                 </td>
                 <td>
-                    <label>Weight</label>
+                    <label for="length">Length (cm)</label>
                 </td>
                 <td>
-                    <label>Length</label>
+                    <label for="width">Width (cm)</label>
                 </td>
                 <td>
-                    <label>Height</label>
+                    <label for="height">Height (cm)</label>
                 </td>
                 <td>
-                    <label>Category</label>
+                    <label for="category">Category</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="parcel">Parcel 1</label>
+                </td>
+                <td>
+                    Hej
+                </td>
+                <td>
+                    Fravel
+                </td>
+                <td>
+                    Hej
+                </td>
+                <td>
+                    Hej
+                </td>
+                <td>
+                    Farvel
+                </td>
+                <td>
+                    Hej
+                </td>
+                <td>
+                    Farvel
+                </td>
+                <td>
+                    Hej
                 </td>
             </tr>
         </table>
@@ -84,11 +112,11 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
+    
     <script>
     (async function InitParcelDeliveries() {
-        var parcelDeliveriesTable = document.getElementById("parcelDeliveryTable");
-        var i = 0;
+        const parcelDeliveriesTable = document.getElementById("parcelDeliveryTable");
+        var data = [];
 
         let jsonData = {
             "method": "GET",
@@ -132,6 +160,5 @@
         });
 
     })()
-    
 </script>
 </body>
