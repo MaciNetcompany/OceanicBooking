@@ -1,3 +1,4 @@
+using Azure;
 using System;
 using System.Collections.Generic;
 
@@ -17,6 +18,10 @@ namespace CalculatingRouteSystem.Models
 
         public void AddNeighbour(Node n, int cost)
         {
+            if(Neighbors.ContainsKey(n))
+            {
+                return;
+            }
             Neighbors.Add(n, cost);
         }
 
@@ -28,6 +33,10 @@ namespace CalculatingRouteSystem.Models
         public Dictionary<Node, int> getNeighbors()
         {
             return Neighbors;
+        }
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

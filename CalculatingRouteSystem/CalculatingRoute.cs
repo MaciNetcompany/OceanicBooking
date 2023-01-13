@@ -16,7 +16,7 @@ namespace CalculatingRouteSystem
 
         static void Main(string[] args)
         {
-            Graph Cities = new Graph();
+/*            Graph Cities = new Graph();
 
             Node Nairobi = new Node("Nairobi");
             Node Cairo = new Node("Cairo");
@@ -37,7 +37,7 @@ namespace CalculatingRouteSystem
             Nairobi.AddNeighbour(Lagos, 75);
             Nairobi.AddNeighbour(Cairo, 90);
             Nairobi.AddNeighbour(Luanda, 125);
-            Nairobi.AddNeighbour(Giza, 100);
+            Nairobi.AddNeighbour(Giza, 100);*/
 
   
         }

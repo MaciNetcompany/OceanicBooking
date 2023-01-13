@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace CalculatingRouteSystem
 {
     //reference source: https://github.com/yazan9/Dijkstra-s-Algorithm
-    internal class DistanceCalculator
+    public class DistanceCalculator
     {
         Dictionary<Node, int> Distances;
         Dictionary<Node, Node> Routes;
@@ -23,7 +23,7 @@ namespace CalculatingRouteSystem
             Routes = SetRoutes();
         }
 
-        public void Calculate(Node Source, Node Destination)
+        public Node[] Calculate(Node Source, Node Destination)
         {
             Distances[Source] = 0;
 
@@ -33,14 +33,8 @@ namespace CalculatingRouteSystem
                 ExamineConnections(LeastExpensiveNode);
                 AllNodes.Remove(LeastExpensiveNode);
             }
-            Print(Source, Destination);
-        }
-
-        private void Print(Node Source, Node Destination)
-        {
-            Console.WriteLine(string.Format("fastest route from {0} to {1} is: {2} $", Source.getName(), Destination.getName(), Distances[Destination]));
-            PrintLeg(Destination);
-            Console.ReadKey();
+            //Print(Source, Destination);
+            return new Node[2] {Source,Destination};
         }
 
         private void PrintLeg(Node d)

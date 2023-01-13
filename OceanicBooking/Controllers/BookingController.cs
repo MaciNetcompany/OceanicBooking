@@ -1,9 +1,9 @@
 ﻿
+using CalculatingRouteSystem;
+using CalculatingRouteSystem.Models;
 using DatabaseComponent.Entitities;
 using DatabaseComponent.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Specialized;
-using System.Data.Entity;
 
 namespace OceanicBooking.Controllers
 {
@@ -28,20 +28,30 @@ namespace OceanicBooking.Controllers
         [HttpGet()]
         public async Task<IActionResult> FindRoutes()
         {
-            var found = true; // TODO: use CalculatingRouteSystem to get routes
-            Dictionary<string,string> test = new Dictionary<string,string>();
-            test.Add("Origin", "Nairobi");
-            test.Add("Destination", "Tunis");
-            ISet<CitiesJPA> origin =_bookingContext.Cities.ToHashSet();
-            CitiesJPA destination = _bookingContext.Cities.Where(p => p.Name == test.GetValueOrDefault("Destination")).First();
-            if (found){
-                //TODO: input found routes
-                return Ok();
-            }
-            else
+
+            ISet<CitiesJPA> cities =_bookingContext.Cities.ToHashSet();
+           
+            var relationsList = new List<RelationsJPA>();
+            var nodes = new Dictionary<int, Node>();
+            foreach (var city in cities)
             {
-                return BadRequest();
+                relationsList.AddRange(_bookingContext.Relations.Where(x => x.ID_City == city.Id).ToList());
+                nodes.Add(city.Id, new Node(city.Id.ToString()) );
             }
+            var graph = new Graph();
+            int i = 0;
+            foreach (var relation in relationsList)
+            {
+                nodes[relation.ID_City].AddNeighbour(nodes[relation.ID_Neighbour],i%2==0?2:4);
+            }
+            foreach(var n in nodes)
+            {
+                graph.Add(n.Value);
+            }
+            DistanceCalculator calc = new DistanceCalculator(graph);
+            Node[] node = calc.Calculate(nodes[2], nodes[5]);
+             return Ok(node[0].ToString() + "," + node[1].ToString());
+
         }
     }
 }
