@@ -37,9 +37,13 @@
             <div class="text-center">
                 <h1 class="display-4">Login</h1>
                 <form method="post">
+                    <label for="username">Username:</label>
                     <input type="text" name="username"> 
+                    <br>
+                    <label for="password">Password:</label>
                     <input type="password" name="password"> 
-                    <input type="submit">
+                    <br>
+                    <input type="submit" name="Login">
                 </form>
                 @*<form asp-route-returnUrl="@Url.Page("/", new { area = "Home" })" method="post">
                     <label for="username">Username:</label>
