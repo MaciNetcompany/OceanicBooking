@@ -1,4 +1,5 @@
-﻿
+﻿using DatabaseComponent.Entitities;
+using DatabaseComponent.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace OceanicBooking.Controllers
@@ -8,9 +9,10 @@ namespace OceanicBooking.Controllers
     [ApiController]
     public class HomeController : Controller
     {
-
-        public HomeController()
+        private readonly IBookingContext _bookingContext;
+        public HomeController(IBookingContext bookingContext)
         {
+            this._bookingContext=bookingContext;
         }
 
         public ActionResult Index()
