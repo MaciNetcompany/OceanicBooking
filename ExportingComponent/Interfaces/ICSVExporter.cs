@@ -4,6 +4,6 @@ namespace ExportingComponent.Interfaces
 {
     public interface ICSVExporter
     {
-        public bool SaveToCSV(IEnumerable<FlyRoute> routes);
+        public string SaveToCSV(IEnumerable<FlyRoute> routes);
     }
 }

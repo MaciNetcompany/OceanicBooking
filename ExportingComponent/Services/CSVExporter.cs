@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using CsvHelper;
+﻿
 using ExportingComponent.Interfaces;
 using ExportingComponent.NewFolder;
 
@@ -7,21 +6,32 @@ namespace ExportingComponent.Services
 {
     public class CSVExporter : ICSVExporter
     {
-        public bool SaveToCSV(IEnumerable<FlyRoute> routes)
+        private readonly string _csvColumns="RouteID,Date,SourcePoint,DestinationPoint,Weight,Width,Height,Length,Price,Category";
+        public string SaveToCSV(IEnumerable<FlyRoute> routes)
         {
-            using (var stream = File.Open("filePersons.csv", FileMode.CreateNew))
-            using (var writer = new StreamWriter(stream))
-            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            string csv = "";
+            //using (var stream = File.Open("file.csv", FileMode.CreateNew))
+            using (var stream = new MemoryStream())
             {
-
-                foreach (FlyRoute flyRoute in routes)
+                using (var writer = new StreamWriter(stream))
                 {
-                    csv.WriteRecord(flyRoute);
-                    writer.Write("\r\n");
+                        writer.Write(_csvColumns);
+                        writer.Write(writer.NewLine);
+                        foreach (FlyRoute flyRoute in routes)
+                        {
+                            writer.Write(flyRoute.ToCSVRow());
+                            writer.Write(writer.NewLine);
+                        }
+                        writer.Flush();
+                        stream.Seek(0, SeekOrigin.Begin);
+                    var reader = new StreamReader(stream);
+                    csv = reader.ReadToEnd();
+                    reader.Close();
                 }
             }
 
-            return true;
+
+            return csv;
 
         }
 
