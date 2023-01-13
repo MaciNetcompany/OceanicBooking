@@ -27,7 +27,7 @@ namespace OceanicBooking.Controllers
 
             if (username[0].Equals(adminUserName))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("AdminIndex", "Home");
             }
             else if (username[0].Equals(bookerUserName))
             {
