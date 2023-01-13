@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseComponent", "Databa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationComponent", "IntegrationComponent\IntegrationComponent.csproj", "{C305D7E3-CBA9-4845-8FFE-77C52747707E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatingPriceSystem", "CalculatingPriceSystem\CalculatingPriceSystem.csproj", "{D6C1E9C6-18E6-4086-85C1-D87B3555DC4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatingPriceSystem", "CalculatingPriceSystem\CalculatingPriceSystem.csproj", "{D6C1E9C6-18E6-4086-85C1-D87B3555DC4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

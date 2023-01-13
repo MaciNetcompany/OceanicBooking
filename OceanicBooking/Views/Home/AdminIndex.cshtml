@@ -96,6 +96,78 @@
             </tr>
         </table>
         <div>
+        <table id="booking">
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <label for="origin">Dimension</label>
+                    </td>
+                    <td>
+                        <label for="origin">Origin</label>
+                    </td>
+                    <td>
+                        <label for="destination">Destination</label>
+                    </td>
+                </tr>
+                <tr>
+                    <form method="post" action="">
+                    <td>
+                        <label for="less">Less than 1 kg</label>
+                    </td>
+                    <td>
+                        <input type="text" id="origin" name="origin" required
+                               minlength="1" maxlength="100">
+                    </td>
+                    <td>
+                        <input type="text" id="destination" name="destination" required
+                               minlength="1" maxlength="100">
+                    </td>
+                    <td>
+                        <input type="number" id="weight" name="weight" required
+                               minlength="0" maxlength="100">
+                    </td>
+                    </form>
+                </tr>
+                <tr>
+                    <form method="post" action="">
+                    <td>
+                        <label for="between">Between 1 and 5 kg</label>
+                    </td>
+                    <td>
+                        <input type="text" id="origin" name="origin" required
+                               minlength="1" maxlength="100">
+                    </td>
+                    <td>
+                        <input type="text" id="destination" name="destination" required
+                               minlength="1" maxlength="100">
+                    </td>
+                    <td>
+                        <input type="number" id="weight" name="weight" required
+                               minlength="0" maxlength="100">
+                    </td>
+                    </form>
+                </tr>
+                <tr>
+                    <form method="post" action="">
+                    <td>
+                        <label for="more">More than 5 kg</label>
+                    </td>
+                    <td>
+                        <input type="text" id="origin" name="origin" required
+                               minlength="1" maxlength="100">
+                    </td>
+                    <td>
+                        <input type="text" id="destination" name="destination" required
+                               minlength="1" maxlength="100">
+                    </td>
+                    <td>
+                        <input type="number" id="weight" name="weight" required
+                               minlength="0" maxlength="100">
+                    </td>
+                    </form>
+                </tr>
+            </table>
             <div class="align-right">
                 <button>Export parcels</button>
                 <button>Add parcels</button>
