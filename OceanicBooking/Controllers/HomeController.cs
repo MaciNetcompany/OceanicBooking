@@ -1,6 +1,9 @@
 ﻿using DatabaseComponent.Entitities;
 using DatabaseComponent.Interfaces;
+using ExportingComponent.Interfaces;
+using ExportingComponent.NewFolder;
 using Microsoft.AspNetCore.Mvc;
+using OceanicBooking.Models.Home;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -12,9 +15,13 @@ namespace OceanicBooking.Controllers
     public class HomeController : Controller
     {
         private readonly IBookingContext _bookingContext;
-        public HomeController(IBookingContext bookingContext)
+        private readonly ICSVExporter _csvExporter;
+        private const string MimeType = "text/csv";
+        private const string FileName = "raport.csv";
+        public HomeController(IBookingContext bookingContext, ICSVExporter csvExporter)
         {
             this._bookingContext=bookingContext;
+            this._csvExporter = csvExporter;
         }
 
 
@@ -43,27 +50,25 @@ namespace OceanicBooking.Controllers
         {
             return View();
         }
-
-        [Route("export")]
-        [HttpGet()]
-        public async Task<IActionResult> ExportParcels()
+        [Route("download")]
+        public ActionResult Download()
         {
             var routes = new List<FlyRoute>();
             routes.Add(new FlyRoute()
             {
-                Category = Categories.Weapons,
+                Category = "Weapons",
                 Date = DateTime.Now,
                 DestinationPoint = "Point1",
-                Dimensions = new decimal[]{4.1m,4.2m,4.5m},
+                Dimensions = new decimal[] { 4.1m, 4.2m, 4.5m },
                 Price = 22.3m,
                 RouteID = 0,
                 SourcePoint = "Point0",
                 Weight = 10.1m
-                
+
             });
             routes.Add(new FlyRoute()
             {
-                Category = Categories.Weapons,
+                Category = "Fragile",
                 Date = DateTime.Now,
                 DestinationPoint = "Point3",
                 Dimensions = new decimal[] { 4.1m, 4.2m, 4.5m },
@@ -75,7 +80,7 @@ namespace OceanicBooking.Controllers
             });
             routes.Add(new FlyRoute()
             {
-                Category = Categories.Weapons,
+                Category = "None",
                 Date = DateTime.Now,
                 DestinationPoint = "Point7",
                 Dimensions = new decimal[] { 4.1m, 4.2m, 4.5m },
@@ -86,14 +91,58 @@ namespace OceanicBooking.Controllers
 
             });
             var exported = _csvExporter.SaveToCSV(routes);
-            if (exported)
+            var stream = new MemoryStream();
+            var writer = new StreamWriter(stream);
+            writer.Write(exported);
+            writer.Flush();
+            stream.Seek(0, SeekOrigin.Begin);
+            return File(stream.GetBuffer(), MimeType, FileName);
+        }
+
+        [Route("export")]
+        [HttpGet()]
+        public ActionResult ExportParcels()
+        {
+            var routes = new List<FlyRoute>();
+            routes.Add(new FlyRoute()
             {
-                return Ok();
-            }
-            else
+                Category = "Weapons",
+                Date = DateTime.Now,
+                DestinationPoint = "Point1",
+                Dimensions = new decimal[]{4.1m,4.2m,4.5m},
+                Price = 22.3m,
+                RouteID = 0,
+                SourcePoint = "Point0",
+                Weight = 10.1m
+                
+            });
+            routes.Add(new FlyRoute()
             {
-                return BadRequest();
-            }
+                Category = "Fragile",
+                Date = DateTime.Now,
+                DestinationPoint = "Point3",
+                Dimensions = new decimal[] { 4.1m, 4.2m, 4.5m },
+                Price = 22.3m,
+                RouteID = 0,
+                SourcePoint = "Point2",
+                Weight = 10.1m
+
+            });
+            routes.Add(new FlyRoute()
+            {
+                Category = "None",
+                Date = DateTime.Now,
+                DestinationPoint = "Point7",
+                Dimensions = new decimal[] { 4.1m, 4.2m, 4.5m },
+                Price = 22.3m,
+                RouteID = 1,
+                SourcePoint = "Point4",
+                Weight = 10.1m
+
+            });
+            var exported = _csvExporter.SaveToCSV(routes);
+            //return Download(new HomeViewModel(){CSV = exported});
+            return Ok(exported);
         }
         [Route("save_prices")]
         [HttpGet()]

@@ -16,7 +16,7 @@ namespace ExportingComponent.NewFolder
         public decimal Weight { get; set; }
         public decimal[] Dimensions { get; set; }
         public decimal Price { get; set; }
-        public Categories Category { get; set; }
+        public string Category { get; set; }
 
         public IEnumerable<object> ToListOfRecords()
         {
