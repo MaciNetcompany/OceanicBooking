@@ -1,4 +1,5 @@
 ﻿@page
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -186,12 +187,61 @@
                         }
                     }
 
+                    function handleFormSubmission() {
+                        var table = document.getElementById("booking");
+                        var $headers = ["Origin", "Destination", "Weight", "Length", "Width", "Height", "Category"];
+                        console.log("In form")
+                        var postObject = {}
+                        var shouldContinue = true
+                        var index = 0;
+                        for (var i = 1, row; row = table.rows[i]; i++) {
+                            for (var j = 1, col; col = row.cells[j]; j++) {
+                                if (j<7) {
+                                    cell = col.getElementsByTagName('input')[0].value;
+                                postObject[index] = cell
+                                    if (!validate(cell, $headers[j - 1])) {
+                                        shouldContinue = false
+                                        console.log(false);
+                                        alert("Parcel row " + i + " cant have a weight over 20 kg or dimensions that is larger than 2x2x2 meter or have blank cells")
+                                        break;
+                                     }
+                                     index = index + 1 
+                                }
+                            }
+                        }
+                        console.log(location.href+'/find')
+                        console.log(postObject)
+                        if(shouldContinue){
+                            window.location.href = '/api/Confirmation';
+                            //fetch(location.href + '/find', {
+                            //    method : 'POST',
+                            //    headers : {'Content-Type' : 'application/json'},
+                            //    body : JSON.stringify(postObject)
+                            //})
+                        }
+                    }
+
+                    function validate(cell, header){
+                        if(cell == ""){
+                            return false;
+                        }
+                        
+                        if(header == "Height" || header == "Width" || header == "Length"){
+                            if(cell > 200){
+                                return false;
+                            }
+                        }
+                        else if(header == "Weight" && cell > 20){
+                            return false;
+                        }
+                        return true;
+                    }
                 </script>
 
                 <button type="button" onclick="addRow()" >
                     Add parcel
                 </button>
-                <button type="button" onclick="window.location.href='/api/Confirmation'">
+                <button type="button" onclick=handleFormSubmission()>
                     Find routes
                 </button>
             </div>
