@@ -26,7 +26,6 @@ namespace OceanicBooking.Controllers
             var d = 2;
             var username = Request.Form["username"];
             var password = Request.Form["password"];
-            String userName = _
             if (username[0] == null || password[0] == null)
             {
                 return BadRequest();

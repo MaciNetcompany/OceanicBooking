@@ -1,4 +1,4 @@
-@page
+﻿@page
 @model OceanicBooking.Models.Login.IndexModel
 @{
     // ViewData.Model.UserName= "Home page";
@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/OceanicBooking.styles.css" asp-append-version="true" />
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -36,69 +37,40 @@
         <div class="text-center">
             <h1 class="display-4">Parcel deliveries</h1>
         </div>
-        <table id="confirmation" width="100%" class="table_margin">
+        <table id="parcelDeliveryTable" width="100%" class="table_margin">
             <tr>
                 <td>
                 </td>
                 <td>
-                    <label for="route">Route</label>
+                    <label>Date</label>
                 </td>
                 <td>
-                    <label for="price">Price</label>
+                    <label>OriginId</label>
                 </td>
                 <td>
-                    <label for="time">Time</label>
+                    <label>DestinationId</label>
                 </td>
                 <td>
-                    <label for="weight">Weight (kg)</label>
+                    <label>Time</label>
                 </td>
                 <td>
-                    <label for="length">Length (cm)</label>
+                    <label>Weight</label>
                 </td>
                 <td>
-                    <label for="width">Width (cm)</label>
+                    <label>Length</label>
                 </td>
                 <td>
-                    <label for="height">Height (cm)</label>
+                    <label>Height</label>
                 </td>
                 <td>
-                    <label for="category">Category</label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="parcel">Parcel 1</label>
-                </td>
-                <td>
-                    Hej
-                </td>
-                <td>
-                    Fravel
-                </td>
-                <td>
-                    Hej
-                </td>
-                <td>
-                    Hej
-                </td>
-                <td>
-                    Farvel
-                </td>
-                <td>
-                    Hej
-                </td>
-                <td>
-                    Farvel
-                </td>
-                <td>
-                    Hej
+                    <label>Category</label>
                 </td>
             </tr>
         </table>
         <div>
             <div class="align-right">
                 <button>Export parcels</button>
-                <button>Add parcels</button>
+                <button onclick="window.location.href = '/api/Booking'">Add parcels</button>
             </div>
         </div>
     </div>
@@ -112,11 +84,11 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    
+
     <script>
     (async function InitParcelDeliveries() {
-        const parcelDeliveriesTable = document.getElementById("parcelDeliveryTable");
-        var data = [];
+        var parcelDeliveriesTable = document.getElementById("parcelDeliveryTable");
+        var i = 0;
 
         let jsonData = {
             "method": "GET",
@@ -160,5 +132,6 @@
         });
 
     })()
+    
 </script>
 </body>

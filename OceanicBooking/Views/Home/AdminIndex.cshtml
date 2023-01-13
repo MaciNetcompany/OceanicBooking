@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/OceanicBooking.styles.css" asp-append-version="true" />
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -36,141 +37,100 @@
         <div class="text-center">
             <h1 class="display-4">Parcel deliveries</h1>
         </div>
-        <table id="confirmation" width="100%" class="table_margin">
+        <table id="parcelDeliveryTable" width="100%" class="table_margin">
             <tr>
                 <td>
                 </td>
                 <td>
-                    <label for="route">Route</label>
+                    <label>Date</label>
                 </td>
                 <td>
-                    <label for="price">Price</label>
+                    <label>OriginId</label>
                 </td>
                 <td>
-                    <label for="time">Time</label>
+                    <label>DestinationId</label>
                 </td>
                 <td>
-                    <label for="weight">Weight (kg)</label>
+                    <label>Time</label>
                 </td>
                 <td>
-                    <label for="length">Length (cm)</label>
+                    <label>Weight</label>
                 </td>
                 <td>
-                    <label for="width">Width (cm)</label>
+                    <label>Length</label>
                 </td>
                 <td>
-                    <label for="height">Height (cm)</label>
+                    <label>Height</label>
                 </td>
                 <td>
-                    <label for="category">Category</label>
+                    <label>Category</label>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <label for="parcel">Parcel 1</label>
-                </td>
-                <td>
-                    Hej
-                </td>
-                <td>
-                    Fravel
-                </td>
-                <td>
-                    Hej
-                </td>
-                <td>
-                    Hej
-                </td>
-                <td>
-                    Farvel
-                </td>
-                <td>
-                    Hej
-                </td>
-                <td>
-                    Farvel
-                </td>
-                <td>
-                    Hej
-                </td>
-            </tr>
+
+        </table>
+        <table>
+        <tr>
+            <form method="post" action="">
+            <td>
+                <label for="less">Less than 1 kg</label>
+            </td>
+            <td>
+                <input type="text" id="origin" name="origin" required
+                       minlength="1" maxlength="100">
+            </td>
+            <td>
+                <input type="text" id="destination" name="destination" required
+                       minlength="1" maxlength="100">
+            </td>
+            <td>
+                <input type="number" id="weight" name="weight" required
+                       minlength="0" maxlength="100">
+            </td>
+            </form>
+        </tr>
+        <tr>
+            <form method="post" action="">
+            <td>
+                <label for="between">Between 1 and 5 kg</label>
+            </td>
+            <td>
+                <input type="text" id="origin" name="origin" required
+                       minlength="1" maxlength="100">
+            </td>
+            <td>
+                <input type="text" id="destination" name="destination" required
+                       minlength="1" maxlength="100">
+            </td>
+            <td>
+                <input type="number" id="weight" name="weight" required
+                       minlength="0" maxlength="100">
+            </td>
+            </form>
+        </tr>
+        <tr>
+            <form method="post" action="">
+            <td>
+                <label for="more">More than 5 kg</label>
+            </td>
+            <td>
+                <input type="text" id="origin" name="origin" required
+                       minlength="1" maxlength="100">
+            </td>
+            <td>
+                <input type="text" id="destination" name="destination" required
+                       minlength="1" maxlength="100">
+            </td>
+            <td>
+                <input type="number" id="weight" name="weight" required
+                       minlength="0" maxlength="100">
+            </td>
+            </form>
+        </tr>
         </table>
         <div>
-        <table id="booking">
-                <tr>
-                    <td>
-                    </td>
-                    <td>
-                        <label for="origin">Dimension</label>
-                    </td>
-                    <td>
-                        <label for="origin">Origin</label>
-                    </td>
-                    <td>
-                        <label for="destination">Destination</label>
-                    </td>
-                </tr>
-                <tr>
-                    <form method="post" action="">
-                    <td>
-                        <label for="less">Less than 1 kg</label>
-                    </td>
-                    <td>
-                        <input type="text" id="origin" name="origin" required
-                               minlength="1" maxlength="100">
-                    </td>
-                    <td>
-                        <input type="text" id="destination" name="destination" required
-                               minlength="1" maxlength="100">
-                    </td>
-                    <td>
-                        <input type="number" id="weight" name="weight" required
-                               minlength="0" maxlength="100">
-                    </td>
-                    </form>
-                </tr>
-                <tr>
-                    <form method="post" action="">
-                    <td>
-                        <label for="between">Between 1 and 5 kg</label>
-                    </td>
-                    <td>
-                        <input type="text" id="origin" name="origin" required
-                               minlength="1" maxlength="100">
-                    </td>
-                    <td>
-                        <input type="text" id="destination" name="destination" required
-                               minlength="1" maxlength="100">
-                    </td>
-                    <td>
-                        <input type="number" id="weight" name="weight" required
-                               minlength="0" maxlength="100">
-                    </td>
-                    </form>
-                </tr>
-                <tr>
-                    <form method="post" action="">
-                    <td>
-                        <label for="more">More than 5 kg</label>
-                    </td>
-                    <td>
-                        <input type="text" id="origin" name="origin" required
-                               minlength="1" maxlength="100">
-                    </td>
-                    <td>
-                        <input type="text" id="destination" name="destination" required
-                               minlength="1" maxlength="100">
-                    </td>
-                    <td>
-                        <input type="number" id="weight" name="weight" required
-                               minlength="0" maxlength="100">
-                    </td>
-                    </form>
-                </tr>
-            </table>
             <div class="align-right">
                 <button>Export parcels</button>
-                <button>Add parcels</button>
+                <button onclick ="window.location.href = '/api/Booking'">Add parcels</button>
             </div>
         </div>
     </div>
@@ -184,53 +144,54 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    
+
     <script>
-    (async function InitParcelDeliveries() {
-        const parcelDeliveriesTable = document.getElementById("parcelDeliveryTable");
-        var data = [];
+        (async function InitParcelDeliveries() {
+            var parcelDeliveriesTable = document.getElementById("parcelDeliveryTable");
+            var i = 0;
 
-        let jsonData = {
-            "method": "GET",
-            "headers": {
-                "Content-Type": "application/JSON"
-            }
-        };
-        const parcelDeliveryData = await fetch('/api/Home/GetParcelDeliveries', jsonData).
-            then(response => response.json()).
-            then(bookings => { return bookings });
+            let jsonData = {
+                "method": "GET",
+                "headers": {
+                    "Content-Type": "application/JSON"
+                }
+            };
+            const parcelDeliveryData = await fetch('/api/Home/GetParcelDeliveries', jsonData).
+                then(response => response.json()).
+                then(bookings => { return bookings });
 
-        parcelDeliveryData.forEach(item => {
-            var row = parcelDeliveriesTable.insertRow(-1);
-            var cell0 = row.insertCell(0);
-            var cell1 = row.insertCell(1);
-            var cell2 = row.insertCell(2);
-            var cell3 = row.insertCell(3);
-            var cell4 = row.insertCell(4);
-            var cell5 = row.insertCell(5);
-            var cell6 = row.insertCell(6);
-            var cell7 = row.insertCell(7);
-            var cell8 = row.insertCell(8);
-            cell1.innerHTML = item.requestedAtDate
-            cell2.innerHTML = item.fromCityId
-            cell3.innerHTML = item.toCityId
-            cell4.innerHTML = item.deliveryTime
-            cell5.innerHTML = item.weight
-            cell6.innerHTML = item.length
-            cell7.innerHTML = item.height
-            if (item.containsCautionsGoods) {
-                cell8.innerHTML = "Cautious goods";
-            } else if (item.containsWeapons) {
-                cell8.innerHTML = "Weapons";
-                var weaponCell = parcelDeliveriesTable.getElementsByTagName("td");
+            parcelDeliveryData.forEach(item => {
+                var row = parcelDeliveriesTable.insertRow(-1);
+                var cell0 = row.insertCell(0);
+                var cell1 = row.insertCell(1);
+                var cell2 = row.insertCell(2);
+                var cell3 = row.insertCell(3);
+                var cell4 = row.insertCell(4);
+                var cell5 = row.insertCell(5);
+                var cell6 = row.insertCell(6);
+                var cell7 = row.insertCell(7);
+                var cell8 = row.insertCell(8);
+                cell1.innerHTML = item.requestedAtDate
+                cell2.innerHTML = item.fromCityId
+                cell3.innerHTML = item.toCityId
+                cell4.innerHTML = item.deliveryTime
+                cell5.innerHTML = item.weight
+                cell6.innerHTML = item.length
+                cell7.innerHTML = item.height
+                if (item.containsCautionsGoods) {
+                    cell8.innerHTML = "Cautious goods";
+                } else if (item.containsWeapons) {
+                    cell8.innerHTML = "Weapons";
+                    var weaponCell = parcelDeliveriesTable.getElementsByTagName("td");
                     cell8.style.backgroundColor = "red";
-                    
-                } else if (item.isRefrigerated) {
-                cell8.innerHTML = "Refrigerated";
-            }
-            
-        });
 
-    })()
-</script>
+                } else if (item.isRefrigerated) {
+                    cell8.innerHTML = "Refrigerated";
+                }
+
+            });
+
+        })()
+
+    </script>
 </body>
